@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2021",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "inlineSourceMap": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "baseUrl": "."
+  },
+  "exclude": ["**/node_modules", "**/*.spec.ts", "**/*.test.ts", "**/dist"]
+}
