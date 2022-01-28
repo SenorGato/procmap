@@ -1,11 +1,11 @@
 import { Terrain } from "./enums";
 
 export class Tile {
-    sprite: string;
     height: number;
     terrain: Terrain;
+    sprite: string;
     
-    constructor(sprite: string,height: number,terrain: Terrain) {
+    constructor(height: number,terrain: Terrain,sprite: string) {
         this.sprite = sprite;
         this.height = height;
         this.terrain = terrain;

@@ -6,7 +6,7 @@ module.exports = {
     mode: 'production',
 
     //Entry files
-    entry: './src/perlin.ts',
+    entry: './src/main.ts',
 
     //Output bundles
     output: {
@@ -26,6 +26,10 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.js$/, 
+                use: 'val-loader'
             }
         ]
     }
