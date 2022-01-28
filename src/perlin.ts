@@ -1,9 +1,4 @@
-enum Terrain {
-    Ocean,
-    Plain,
-    Mountain,
-    Swamp,
-}
+import { Terrain } from "./enums";
 
 class Tile {
     sprite: string;
