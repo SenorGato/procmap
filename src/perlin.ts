@@ -1,18 +1,18 @@
-import { Terrain } from "./enums";
+import { Tile } from "./tile";
+import { Terrain } from "./enums"
 
-class Tile {
-    sprite: string;
-    height: number;
-    terrain: Terrain;
-    
-    constructor(sprite: string,height: number,terrain: Terrain) {
-        this.sprite = sprite;
-        this.height = height;
-        this.terrain = terrain;
+let tileSize = 10;
+let gameMapWidth = 800;
+let gameMapHeight = 600;
+
+
+let gameMap: Tile[][];
+
+for( let i=0; i < (gameMapWidth/tileSize); i++) {
+    gameMap[i] = [];
+    for( let x=0; x< (gameMapHeight/tileSize); x++) {
+        gameMap[i][x] = new Tile("default", 1, Terrain.Mountain);
     }
 }
 
-let gameMap:Tile[][];
-let gameMapWidth = 16;
-let gameMapHeight = 16;
 
