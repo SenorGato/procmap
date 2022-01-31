@@ -1,18 +1,28 @@
 import { Tile } from "./tile";
 import { Terrain } from "./enums"
+import { Noise2D } from "./perlin"
 
-let tileSize = 10;
+let tileSize = 20;
 let gameMapWidth = 800;
-let gameMapHeight = 100;
+let gameMapHeight = 600;
+
+const canvas = document.createElement('canvas');
+canvas.id = "map";
+canvas.style.border = "5px solid red";
+canvas.width = gameMapWidth;
+canvas.height = gameMapHeight;
+document.body.appendChild(canvas);
 
 let gameMap: Tile[][] = [];
-
+let frequency = .05
 for( let x=0; x < (gameMapWidth/tileSize); x++) {
     gameMap[x] = [];
     for( let y=0; y< (gameMapHeight/tileSize); y++) {
-        gameMap[x][y] = new Tile(1,Terrain.Ocean,"tile");
+        let height = Math.floor(Noise2D(x*frequency,y*frequency) * 10);
+        gameMap[x][y] = new Tile(height,Terrain.Ocean,"tile");
+        let ctx = canvas.getContext("2d");
+        ctx!.beginPath();
+        ctx!.rect(x*tileSize,y*tileSize,x*tileSize+tileSize,y*tileSize+tileSize);
+        ctx!.stroke();
     }
 }
-
-
-document.body.innerHTML += '<canvas id="map" width=gameMapWidth height="gameMapHeight" style="border:10px solid red"></canvas>';
